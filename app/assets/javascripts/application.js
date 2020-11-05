@@ -13,7 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery/dist/jquery
+//= require jquery
+//= require jquery_ujs
 //= require notify-js-legacy/notify
 //= require bootstrap/dist/js/bootstrap
 //= require popper.js/dist/popper
