@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="app_h1"><%= MiningType.model_name.human(count: @mining_types.count) %></h1>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= @mining_types.human_attribute_name(:description) %></th>
+      <th><%= @mining_types.human_attribute_name(:acronym) %></th>
+      <th><%= t('links.show')%></th>
+      <th><%= t('links.edit')%></th>
+      <th><%= t('links.delete')%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mining_types.each do |mining_type| %>
+    <tr>
+      <td><%= mining_type.description %></td>
+      <td><%= mining_type.acronym %></td>
+      <td><%= link_to t('links.show'), mining_type, class:'btn btn-outline-info btn-sm' %>
+      <td><%= link_to t('links.edit'), edit_mining_type_path(mining_type), class:'btn btn-outline-warning btn-sm' %>
+      </td>
+      <td>
+        <%= link_to t('links.delete'), mining_type, method: :delete, data: { confirm: t('messages.confirm') }, class:'btn btn-outline-danger btn-sm' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.menu'), root_path, class:'btn btn-info btn-sm' %> |
+<%= link_to t('new.mining_type'), new_mining_type_path, class:'btn btn-info btn-sm' %>

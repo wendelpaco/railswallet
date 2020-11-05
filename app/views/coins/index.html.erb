@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="app_h1"><%= Coin.model_name.human(count: @coins.count) %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= @coins.human_attribute_name(:description) %></th>
+      <th><%= @coins.human_attribute_name(:acronym) %></th>
+      <th><%= @coins.human_attribute_name(:url_image)%></th>
+      <th><%= @coins.human_attribute_name(:updated_at)%></th>
+      <th><%= @coins.human_attribute_name(:mining_type_id)%></th>
+      <th><%= t('links.show')%></th>
+      <th><%= t('links.edit')%></th>
+      <th><%= t('links.delete')%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coins.each do |coin| %>
+    <tr>
+      <td><%= coin.description %></td>
+      <td><%= coin.acronym %></td>
+      <td><%= image_tag coin.url_image, size: "25x25" %></td>
+      <td><%= date_formatter coin.updated_at %></td>
+      <td><%= coin.mining_type.description %></td>
+      <td><%= link_to t('links.show'), coin, class: 'btn btn-outline-info btn-sm' %></td>
+      <td><%= link_to t('links.edit'), edit_coin_path(coin), class:'btn btn-outline-warning btn-sm' %></td>
+      <td>
+        <%= link_to t('links.delete'), coin, method: :delete, data: { confirm: t('messages.confirm') }, class:"btn btn-outline-danger btn-sm" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.menu'), root_path, class:'btn btn-info btn-sm' %> |
+<%= link_to t('new.coin'), new_coin_path, class:'btn btn-info btn-sm' %>

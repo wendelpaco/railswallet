@@ -1,0 +1,14 @@
+.app_container {
+  width: 75%;
+  padding: 0px 5px 0px 5px;
+}
+.app_h1 {
+  padding-bottom: 30px;
+}
+.app_span {
+  font-size: 13px;
+  font-weight: lighter;
+}
+.app-btn {
+  display: flow-root;
+}
